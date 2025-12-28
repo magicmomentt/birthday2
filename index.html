@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Gift For You</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="scene">
+        <div class="instruction">
+            <p>Tap to open</p>
+        </div>
+
+        <div class="gift-box" id="giftBox">
+            <div class="lid"></div>
+            <div class="box"></div>
+            <div class="bow">
+                <div class="bow-left"></div>
+                <div class="bow-right"></div>
+                <div class="bow-center"></div>
+            </div>
+        </div>
+
+        <div class="content-card hidden" id="contentCard">
+            <h1 class="birthday-title">Happy Birthday!</h1>
+            <p class="birthday-message">
+                Wishing you a day filled with happiness using a year filled with joy.
+            </p>
+            <p class="signature">With love,</p>
+            <p class="sender">[Abdulrahman]</p>
+            <button id="restartBtn">Replay</button>
+        </div>
+    </div>
+
+    <canvas id="confetti"></canvas>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
