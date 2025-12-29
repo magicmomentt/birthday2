@@ -1,12 +1,12 @@
 :root {
-    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --box-color: #ff5f6d;
-    --box-color-dark: #d63d4b;
-    --lid-color: #ffc371;
-    --ribbon-color: #ffc371;
+    --primary-gradient: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+    --box-color: #ff9a9e;
+    --box-color-dark: #e87e83;
+    --lid-color: #ff9a9e;
+    --ribbon-color: #ffffff;
     --text-color: #ffffff;
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-bg: rgba(255, 255, 255, 0.2);
+    --glass-border: rgba(255, 255, 255, 0.4);
 }
 
 * {
@@ -65,7 +65,8 @@ body {
 }
 
 .gift-box:hover {
-    transform: scale(1.05); /* Gentle scale on hover */
+    transform: scale(1.05);
+    /* Gentle scale on hover */
 }
 
 .gift-box.opening {
@@ -78,7 +79,7 @@ body {
     height: 100%;
     background: var(--box-color);
     border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .box::before {
@@ -127,7 +128,8 @@ body {
     transition: transform 0.5s ease;
 }
 
-.bow-left, .bow-right {
+.bow-left,
+.bow-right {
     position: absolute;
     width: 40px;
     height: 40px;
@@ -143,7 +145,7 @@ body {
 
 .bow-right {
     right: 0;
-    transform: rotate(105deg); 
+    transform: rotate(105deg);
     border-radius: 50% 50% 50% 0;
 }
 
@@ -174,13 +176,15 @@ body {
     transform: translateY(50px) scale(0.9);
     transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    z-index: 1; /* Behind box initially */
+    z-index: 1;
+    /* Behind box initially */
 }
 
 .content-card.visible {
     opacity: 1;
     transform: translateY(0) scale(1);
-    z-index: 20; /* On top when visible */
+    z-index: 20;
+    /* On top when visible */
 }
 
 .birthday-title {
@@ -189,8 +193,9 @@ body {
     margin-bottom: 1rem;
     background: linear-gradient(to right, #fff, #ffe2e2);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .birthday-message {
@@ -227,7 +232,7 @@ body {
 
 #restartBtn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .hidden {
@@ -247,14 +252,34 @@ body {
 /* Animations Logic */
 
 @keyframes box-float {
-    0%, 100% { transform: translateY(0) rotate(0); }
-    50% { transform: translateY(-10px) rotate(1deg); }
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(1deg);
+    }
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-    40% {transform: translateY(-10px);}
-    60% {transform: translateY(-5px);}
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
 }
 
 .gift-box.opened .lid {
@@ -270,5 +295,290 @@ body {
 .gift-box.opened {
     transform: scale(0);
     opacity: 0;
-    transition: all 0.5s ease 0.2s; /* Wait for lid to pop first */
+    transition: all 0.5s ease 0.2s;
+    /* Wait for lid to pop first */
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - MEDIA QUERIES
+   ============================================ */
+
+/* Tablets and smaller laptops (768px and below) */
+@media screen and (max-width: 768px) {
+    .instruction p {
+        font-size: 1rem;
+        letter-spacing: 1.5px;
+    }
+
+    .gift-box {
+        width: 130px;
+        height: 130px;
+    }
+
+    .lid {
+        top: -18px;
+        left: -4px;
+        width: 138px;
+        height: 26px;
+    }
+
+    .bow {
+        top: -44px;
+        width: 70px;
+        height: 35px;
+    }
+
+    .bow-left,
+    .bow-right {
+        width: 35px;
+        height: 35px;
+        border-width: 4px;
+    }
+
+    .bow-center {
+        top: 26px;
+        width: 13px;
+        height: 13px;
+    }
+
+    .content-card {
+        width: 85%;
+        max-width: 450px;
+        padding: 2.5rem;
+    }
+
+    .birthday-title {
+        font-size: 2.5rem;
+    }
+
+    .birthday-message {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+
+    .signature {
+        font-size: 0.95rem;
+    }
+
+    .sender {
+        font-size: 1.1rem;
+    }
+
+    #restartBtn {
+        padding: 0.7rem 1.8rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Mobile devices (480px and below) */
+@media screen and (max-width: 480px) {
+    body {
+        height: 100dvh; /* Use dynamic viewport height for mobile */
+    }
+
+    .instruction {
+        top: 15%;
+    }
+
+    .instruction p {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+
+    .gift-box {
+        width: 110px;
+        height: 110px;
+    }
+
+    .lid {
+        top: -16px;
+        left: -3px;
+        width: 116px;
+        height: 22px;
+    }
+
+    .lid::before,
+    .box::before {
+        width: 25px;
+    }
+
+    .bow {
+        top: -38px;
+        width: 60px;
+        height: 30px;
+    }
+
+    .bow-left,
+    .bow-right {
+        width: 30px;
+        height: 30px;
+        border-width: 3px;
+    }
+
+    .bow-center {
+        top: 22px;
+        width: 11px;
+        height: 11px;
+    }
+
+    .content-card {
+        width: 90%;
+        max-width: 100%;
+        padding: 2rem 1.5rem;
+        border-radius: 16px;
+    }
+
+    .birthday-title {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .birthday-message {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+
+    .signature {
+        font-size: 0.9rem;
+    }
+
+    .sender {
+        font-size: 1rem;
+        margin-top: 0.3rem;
+    }
+
+    #restartBtn {
+        margin-top: 1.5rem;
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Small mobile devices (360px and below) */
+@media screen and (max-width: 360px) {
+    .instruction {
+        top: 12%;
+    }
+
+    .instruction p {
+        font-size: 0.85rem;
+    }
+
+    .gift-box {
+        width: 100px;
+        height: 100px;
+    }
+
+    .lid {
+        top: -14px;
+        left: -3px;
+        width: 106px;
+        height: 20px;
+    }
+
+    .lid::before,
+    .box::before {
+        width: 22px;
+    }
+
+    .bow {
+        top: -34px;
+        width: 55px;
+        height: 28px;
+    }
+
+    .bow-left,
+    .bow-right {
+        width: 28px;
+        height: 28px;
+        border-width: 3px;
+    }
+
+    .bow-center {
+        top: 20px;
+        width: 10px;
+        height: 10px;
+    }
+
+    .content-card {
+        padding: 1.5rem 1.2rem;
+        border-radius: 14px;
+    }
+
+    .birthday-title {
+        font-size: 1.75rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .birthday-message {
+        font-size: 0.95rem;
+        line-height: 1.4;
+        margin-bottom: 1.2rem;
+    }
+
+    .signature {
+        font-size: 0.85rem;
+    }
+
+    .sender {
+        font-size: 0.95rem;
+    }
+
+    #restartBtn {
+        margin-top: 1.2rem;
+        padding: 0.6rem 1.3rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .instruction {
+        top: 8%;
+    }
+
+    .instruction p {
+        font-size: 0.8rem;
+    }
+
+    .gift-box {
+        width: 90px;
+        height: 90px;
+    }
+
+    .lid {
+        top: -12px;
+        width: 96px;
+        height: 18px;
+    }
+
+    .bow {
+        top: -30px;
+        width: 50px;
+        height: 25px;
+    }
+
+    .content-card {
+        padding: 1.2rem 1rem;
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+
+    .birthday-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .birthday-message {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    #restartBtn {
+        margin-top: 1rem;
+        padding: 0.5rem 1.2rem;
+        font-size: 0.8rem;
+    }
 }
